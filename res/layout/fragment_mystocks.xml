@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical" >
+	
+	<TextView android:layout_width="match_parent"
+		    android:id="@+id/StockName"
+		    android:textAppearance="?android:attr/textAppearanceLarge"
+		    android:layout_height="match_parent" />
+		
+    <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:layout_below="@+id/StockName"
+	    android:padding="5dp">
+		
+		<TextView android:layout_width="wrap_content"
+		    android:id="@+id/TotalUnitsLabel"
+		    android:text="@string/TotalUnitsLabel"
+		    android:layout_height="match_parent" />	
+		
+		<TextView android:layout_width="wrap_content"
+		    android:id="@+id/TotalUnits"
+		    android:layout_marginRight="3dp"
+		    android:layout_height="match_parent" />
+		
+		<TextView android:layout_width="wrap_content"
+		    android:id="@+id/MarketQuoteLabel"
+		    android:text="@string/MarketQuoteLabel"
+		    android:layout_height="match_parent" />	
+		    
+		<TextView android:layout_width="wrap_content"
+		    android:id="@+id/MarketQuote"
+		    android:layout_height="match_parent" />
+	</LinearLayout>
+</RelativeLayout>

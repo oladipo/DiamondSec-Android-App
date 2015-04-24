@@ -3,6 +3,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.synkron.diamondsec.MainActivity"
+    tools:context="android.support.v7.app.ActionBarActivity"
     tools:ignore="MergeRootFrame" />
 

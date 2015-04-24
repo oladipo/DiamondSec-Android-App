@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
+<RelativeLayout android:layout_width="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+   	<RelativeLayout android:orientation="horizontal"
+   	    android:id="@+id/contentSection" 
+	    android:layout_height="wrap_content"
+	    android:layout_width="match_parent" 
+	    android:visibility="invisible">
+   	    
+		<LinearLayout android:orientation="horizontal" 
+		    android:id="@+id/UserProfile"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent" >
+		    <TextView
+		        android:id="@+id/txtVwCustomerName"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="32dp"/>
+		
+		   	<TextView
+		        android:id="@+id/txtVwCustomerID"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="32dp"/>
+		   	
+		    <TextView
+		        android:id="@+id/txtVwCSCSNumber"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="32dp"/>
+	   	
+		</LinearLayout>
+	
+		<LinearLayout android:orientation="horizontal" 
+		    android:layout_below = "@id/UserProfile"
+		    android:id="@+id/CashBalanceLayout"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent" >
+		    <TextView
+		        android:id="@+id/txtVwCashBalanceLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="32dp"
+		        android:text="@string/cash_balance" />
+		    
+		    <TextView
+		        android:id="@+id/txtVwCashBalanceValue"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="32dp"/>
+		    
+		</LinearLayout>
+		    
+		<LinearLayout android:orientation="horizontal" 
+		    android:id="@+id/RealEstateLayout"
+		    android:layout_below = "@id/CashBalanceLayout"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent" >
+		    <TextView
+		        android:id="@+id/txtVwRealEstateLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="16dp"
+		        android:text="@string/real_state" />
+		    
+		    <TextView
+		        android:id="@+id/txtVwRealEstateValue"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="16dp"/>
+	    </LinearLayout>
+	    
+		<LinearLayout android:orientation="horizontal" 
+		    android:id="@+id/EquitiesLayout"
+		    android:layout_below = "@id/RealEstateLayout"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent" >
+		    <TextView
+		        android:id="@+id/txtVwEquitiesLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="16dp"
+		        android:text="@string/equities" />
+		    
+		    <TextView
+		        android:id="@+id/txtVwquitiesValue"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="16dp"/>
+	    </LinearLayout>
+	    
+		<LinearLayout android:orientation="horizontal" 
+		    android:id="@+id/FixedIncomeLayout"
+		    android:layout_below = "@id/EquitiesLayout"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent" >
+		    <TextView
+		        android:id="@+id/txtVwFixedIncomeLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="16dp"
+		        android:text="@string/fixed_income" />
+		    
+		    <TextView
+		        android:id="@+id/txtVwFixedIncomeValue"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="16dp"/>
+	    </LinearLayout>
+	    
+		<LinearLayout android:orientation="horizontal" 
+		    android:id="@+id/FundsAvailableLayout"
+		    android:layout_below = "@id/FixedIncomeLayout"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent" >
+		    <TextView
+		        android:id="@+id/txtVwFundsAvailableLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="16dp"
+		        android:text="@string/funds_available_for_trading" />
+		    
+		    <TextView
+		        android:id="@+id/txtVwFundsAvailableValue"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="16dp"/>
+	    </LinearLayout>
+	    
+		<LinearLayout android:orientation="horizontal" 
+		    android:id="@+id/MarginAllowedLayout"
+		    android:layout_below = "@id/FundsAvailableLayout"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent" >
+	    
+		    <TextView
+		        android:id="@+id/txtVwMarginAllowedLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="16dp"
+		        android:text="@string/margin_allowed" />
+		    
+		    <TextView
+		        android:id="@+id/txtVwMarginAllowedValue"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="16dp"/>
+		    
+	    </LinearLayout>
+	    
+	    <LinearLayout android:orientation="horizontal" 
+		    android:id="@+id/TotalLayout"
+		    android:layout_below = "@id/MarginAllowedLayout"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent" >
+	    
+		    <TextView
+		        android:id="@+id/txtVwTotalLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="20dp"
+		        android:layout_marginTop="16dp"
+		        android:text="@string/total" />
+		    
+		    <TextView
+		        android:id="@+id/txtVwTotalValue"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="16dp"/>
+		    
+	    </LinearLayout>
+	</RelativeLayout>
+	
+	<ProgressBar 
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="visible"
+    />
+</RelativeLayout>
+
+    
+</ScrollView>

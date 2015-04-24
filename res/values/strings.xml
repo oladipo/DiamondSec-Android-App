@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">DiamondSec</string>
+    <string name="app_name">Diamond Securities</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="login_customer_id">Customer ID</string>
     <string name="login_password">Password</string>
     <string name="login_button">Login</string>
+    <string name="login_forgot_password"><a href="http://www.diamondsecurities.com">Forgot Your Password? Click Here</a></string>
+    <string name="login_create_account"><a href="http://www.diamondsecurities.com">You do not have an ID? Click Here</a></string>
+    <string name="title_activity_root">RootActivity</string>
+    <string name="action_websearch">Web Search</string>
+    <string name="drawer_open"></string>
+    <string name="drawer_close"></string>
+
+    <string-array name="app_menu">
+        <item>My Account</item>
+        <item>Order History</item>
+        <item>Stock List</item>
+        <item>Market Info</item>
+        <item>News</item>
+        <item>Log Off</item>
+    </string-array>
+
+    <string name="cash_balance">Cash Balance</string>
+    <string name="real_state">Real Estate</string>
+    <string name="equities">Equities</string>
+    <string name="fixed_income">Fixed Income</string>
+    <string name="funds_available_for_trading">Funds Available for Trading</string>
+    <string name="margin_allowed">Margin Allowed</string>
+    <string name="total">Total</string>
+    <string name="preference_file_key">User Profile</string>
+    <string name="customer_id">Customer ID</string>
+    <string name="MarketQuoteLabel">Market Quote:</string>
+    <string name="TotalUnitsLabel">Total Units:</string>
+    <string name="ChangeLabel">Change</string>
+    <string name="CloseLabel">Close</string>
+    <string name="PriceLabel">Price</string>
+    <string name="AppAlias">MOBILE TRADER</string>
+    <string name="search_hint">Search Stocks</string>
+    <string name="action_search">Search</string>
+    <string name="title_activity_search">SearchActivity</string>
+	<string name="search_results">RESULTS</string>
 </resources>
