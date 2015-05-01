@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0">
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="15"
         android:targetSdkVersion="21" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -50,7 +50,11 @@
         </activity>
         <provider
             android:name=".contentproviders.StocksContentProvider"
-            android:authorities="com.synkron.diamondsec.contentproviders.StocksContentProvider" />
+            android:authorities="com.synkron.diamondsec.contentproviders.StocksContentProvider">
+         	
+         	<path-permission android:pathPrefix="/search_suggest_query"
+                   android:readPermission="android.permission.GLOBAL_SEARCH" />    
+        </provider>
         <service  
             android:enabled="true"
             android:name=".services.StocksUpdateService"

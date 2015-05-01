@@ -1,7 +1,10 @@
 package com.synkron.diamondsec.contentproviders;
 
+import java.util.HashMap;
+
 import com.synkron.diamondsec.dbopenhelpers.StocksDBOpenHelper;
 
+import android.app.SearchManager;
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -19,7 +22,8 @@ public class StocksContentProvider extends ContentProvider{
 	public static final Uri CONTENT_URI = Uri.parse("content://com.synkron.diamondsec.contentproviders.StocksContentProvider/stocks");
 	private static final int ALLROWS = 1;
 	private static final int SINGLE_ROW = 2;
-
+	private static final int SEARCH = 3;
+	
 	//database columns constants
 	public static final String KEY_ID = "_id";
 	public static final String KEY_STOCK_CODE = "stockCode";
@@ -35,6 +39,7 @@ public class StocksContentProvider extends ContentProvider{
 	public static final String KEY_STOCK_AVERAGE_UNIT_PRICE = "averageUnitPrice";
 	public static final String KEY_STOCK_TOTAL_UNITS = "totalUnits";
 	public static final String KEY_STOCK_VOLUME = "volume";
+	public static final String KEY_SEARCH_COLUMN = KEY_STOCK_NAME;
 	
 	private static final UriMatcher uriMatcher;
 	SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -42,10 +47,30 @@ public class StocksContentProvider extends ContentProvider{
 	
 	static{
 		uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-		uriMatcher.addURI("com.synkron.diamondsec.contentproviders.StocksContentProvider", "stocks", ALLROWS);
-		uriMatcher.addURI("com.synkron.diamondsec.contentproviders.StocksContentProvider", "stocks/#", SINGLE_ROW);
+		uriMatcher.addURI("com.synkron.diamondsec.contentproviders.StocksContentProvider",
+				"stocks", ALLROWS);
+		uriMatcher.addURI("com.synkron.diamondsec.contentproviders.StocksContentProvider", 
+				"stocks/#", SINGLE_ROW);
+		uriMatcher.addURI("com.synkron.diamondsec.contentproviders.StocksContentProvider",
+				SearchManager.SUGGEST_URI_PATH_QUERY, SEARCH);
+		uriMatcher.addURI("com.synkron.diamondsec.contentproviders.StocksContentProvider",
+				SearchManager.SUGGEST_URI_PATH_QUERY + "/*", SEARCH);
+		uriMatcher.addURI("com.synkron.diamondsec.contentproviders.StocksContentProvider",
+				SearchManager.SUGGEST_URI_PATH_SHORTCUT, SEARCH);
+		uriMatcher.addURI("com.synkron.diamondsec.contentproviders.StocksContentProvider",
+				SearchManager.SUGGEST_URI_PATH_SHORTCUT + "/*", SEARCH);
 	}
 	
+	//Projection for search suggestions....
+	private static final HashMap<String, String> SEARCH_SUGGEST_PROJECTION_MAP;
+	static{
+		SEARCH_SUGGEST_PROJECTION_MAP = new HashMap<String, String>();
+		SEARCH_SUGGEST_PROJECTION_MAP.put("_id", KEY_ID + " AS "+ "_id");
+		SEARCH_SUGGEST_PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_TEXT_1, KEY_SEARCH_COLUMN 
+				+ " AS "+ SearchManager.SUGGEST_COLUMN_TEXT_1);
+		SEARCH_SUGGEST_PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_INTENT_DATA_ID, KEY_ID 
+				+ " AS "+ "_id");
+	};
 	
 	@Override
 	public int delete(Uri uri, String whereClause, String[] whereArgs) {
@@ -64,6 +89,7 @@ public class StocksContentProvider extends ContentProvider{
 					+ (!TextUtils.isEmpty(whereClause) ? " AND ("
 					+ whereClause + ')' : ""), whereArgs);
 			break;
+			
 			default:
 				throw new IllegalArgumentException("Unsupported URI: "+ uri);
 		}
@@ -80,6 +106,8 @@ public class StocksContentProvider extends ContentProvider{
 			return "vnd.android.cursor.dir/vnd.diamondsec.stock";
 		case SINGLE_ROW: 
 			return "vnd.android.cursor.item/vnd.diamondsec.stock";
+		case SEARCH:
+			return SearchManager.SUGGEST_MIME_TYPE;
 		default:
 			throw new IllegalArgumentException("Unsupported URI: "+ uri);
 		}
@@ -122,7 +150,12 @@ public class StocksContentProvider extends ContentProvider{
 			case SINGLE_ROW:
 				queryBuilder.appendWhere(KEY_ID + "=" + uri.getPathSegments().get(1));
 				break;
-				default:
+			case SEARCH:
+				String query = uri.getPathSegments().get(1);
+				queryBuilder.appendWhere(KEY_SEARCH_COLUMN + " LIKE \"%"+ query + "%\"");
+				queryBuilder.setProjectionMap(SEARCH_SUGGEST_PROJECTION_MAP);
+				break;
+			default:
 					break;
 		}
 		

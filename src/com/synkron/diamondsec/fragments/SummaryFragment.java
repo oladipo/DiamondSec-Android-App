@@ -2,7 +2,6 @@ package com.synkron.diamondsec.fragments;
 
 import com.synkron.diamondsec.R;
 import com.synkron.diamondsec.callbacks.FragmentCallback;
-import com.synkron.diamondsec.connectors.InfowareConnector;
 import com.synkron.diamondsec.connectors.SummaryConnector;
 import com.synkron.diamondsec.utils.SplitString;
 

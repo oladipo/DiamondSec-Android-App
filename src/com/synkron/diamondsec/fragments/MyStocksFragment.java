@@ -37,8 +37,6 @@ public class MyStocksFragment extends android.support.v4.app.Fragment implements
 		
 		_context = getActivity();
 		
-		_theView = rootView;
-		
 		loadCustomerStocks();
 		
 		mStocksListView = (ListView) rootView.findViewById(R.id.customer_stocks_list);

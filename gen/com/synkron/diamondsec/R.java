@@ -1015,26 +1015,26 @@ containing a value of this type.
         public static final int rect_text_edit=0x7f02006f;
     }
     public static final class id {
-        public static final int CashBalanceLayout=0x7f0a005d;
+        public static final int CashBalanceLayout=0x7f0a005e;
         public static final int Change=0x7f0a0056;
         public static final int ChangeLabel=0x7f0a0055;
         public static final int Close=0x7f0a0054;
         public static final int CloseLabel=0x7f0a0053;
-        public static final int EquitiesLayout=0x7f0a0063;
-        public static final int FixedIncomeLayout=0x7f0a0066;
-        public static final int FundsAvailableLayout=0x7f0a0069;
+        public static final int EquitiesLayout=0x7f0a0064;
+        public static final int FixedIncomeLayout=0x7f0a0067;
+        public static final int FundsAvailableLayout=0x7f0a006a;
         public static final int Layout01=0x7f0a0046;
-        public static final int MarginAllowedLayout=0x7f0a006c;
+        public static final int MarginAllowedLayout=0x7f0a006d;
         public static final int MarketQuote=0x7f0a004b;
         public static final int MarketQuoteLabel=0x7f0a004a;
         public static final int Price=0x7f0a0052;
         public static final int PriceLabel=0x7f0a0051;
-        public static final int RealEstateLayout=0x7f0a0060;
+        public static final int RealEstateLayout=0x7f0a0061;
         public static final int StockName=0x7f0a0047;
-        public static final int TotalLayout=0x7f0a006f;
+        public static final int TotalLayout=0x7f0a0070;
         public static final int TotalUnits=0x7f0a0049;
         public static final int TotalUnitsLabel=0x7f0a0048;
-        public static final int UserProfile=0x7f0a0059;
+        public static final int UserProfile=0x7f0a005a;
         public static final int action_bar=0x7f0a001c;
         public static final int action_bar_activity_content=0x7f0a0001;
         public static final int action_bar_container=0x7f0a001b;
@@ -1047,8 +1047,7 @@ containing a value of this type.
         public static final int action_menu_presenter=0x7f0a0003;
         public static final int action_mode_close_button=0x7f0a0024;
         public static final int action_search=0x7f0a0077;
-        public static final int action_settings=0x7f0a0075;
-        public static final int action_websearch=0x7f0a0076;
+        public static final int action_settings=0x7f0a0076;
         public static final int activity_chooser_view_content=0x7f0a0025;
         public static final int always=0x7f0a000f;
         public static final int appLogo=0x7f0a003d;
@@ -1057,7 +1056,7 @@ containing a value of this type.
         public static final int checkbox=0x7f0a002d;
         public static final int collapseActionView=0x7f0a0010;
         public static final int container=0x7f0a003c;
-        public static final int contentSection=0x7f0a0058;
+        public static final int contentSection=0x7f0a0059;
         public static final int content_frame=0x7f0a004f;
         public static final int customer_stocks_list=0x7f0a004c;
         public static final int default_activity_button=0x7f0a0028;
@@ -1076,7 +1075,7 @@ containing a value of this type.
         public static final int icon=0x7f0a002a;
         public static final int ifRoom=0x7f0a0011;
         public static final int image=0x7f0a0027;
-        public static final int item_icon=0x7f0a0073;
+        public static final int item_icon=0x7f0a0074;
         public static final int left_drawer=0x7f0a0050;
         public static final int listMode=0x7f0a0006;
         public static final int list_item=0x7f0a0029;
@@ -1084,7 +1083,7 @@ containing a value of this type.
         public static final int never=0x7f0a0012;
         public static final int none=0x7f0a0019;
         public static final int normal=0x7f0a0007;
-        public static final int progressBar=0x7f0a0072;
+        public static final int progressBar=0x7f0a0073;
         public static final int progressStocks=0x7f0a004d;
         public static final int progress_circular=0x7f0a0004;
         public static final int progress_horizontal=0x7f0a0005;
@@ -1104,34 +1103,35 @@ containing a value of this type.
         public static final int showHome=0x7f0a000c;
         public static final int showTitle=0x7f0a000d;
         public static final int split_action_bar=0x7f0a001e;
-        public static final int stocks_list=0x7f0a0057;
+        public static final int stocks_list=0x7f0a0058;
         public static final int submit_area=0x7f0a0039;
+        public static final int swipe_refresh_layout=0x7f0a0057;
         public static final int tabMode=0x7f0a0008;
-        public static final int text1=0x7f0a0074;
+        public static final int text1=0x7f0a0075;
         public static final int title=0x7f0a002b;
         public static final int top_action_bar=0x7f0a0020;
         public static final int txtVwAppName=0x7f0a003e;
-        public static final int txtVwCSCSNumber=0x7f0a005c;
-        public static final int txtVwCashBalanceLabel=0x7f0a005e;
-        public static final int txtVwCashBalanceValue=0x7f0a005f;
+        public static final int txtVwCSCSNumber=0x7f0a005d;
+        public static final int txtVwCashBalanceLabel=0x7f0a005f;
+        public static final int txtVwCashBalanceValue=0x7f0a0060;
         public static final int txtVwCreateAccount=0x7f0a0045;
-        public static final int txtVwCustomerID=0x7f0a005b;
+        public static final int txtVwCustomerID=0x7f0a005c;
         public static final int txtVwCustomerId=0x7f0a003f;
-        public static final int txtVwCustomerName=0x7f0a005a;
-        public static final int txtVwEquitiesLabel=0x7f0a0064;
-        public static final int txtVwFixedIncomeLabel=0x7f0a0067;
-        public static final int txtVwFixedIncomeValue=0x7f0a0068;
+        public static final int txtVwCustomerName=0x7f0a005b;
+        public static final int txtVwEquitiesLabel=0x7f0a0065;
+        public static final int txtVwFixedIncomeLabel=0x7f0a0068;
+        public static final int txtVwFixedIncomeValue=0x7f0a0069;
         public static final int txtVwForgot=0x7f0a0044;
-        public static final int txtVwFundsAvailableLabel=0x7f0a006a;
-        public static final int txtVwFundsAvailableValue=0x7f0a006b;
-        public static final int txtVwMarginAllowedLabel=0x7f0a006d;
-        public static final int txtVwMarginAllowedValue=0x7f0a006e;
+        public static final int txtVwFundsAvailableLabel=0x7f0a006b;
+        public static final int txtVwFundsAvailableValue=0x7f0a006c;
+        public static final int txtVwMarginAllowedLabel=0x7f0a006e;
+        public static final int txtVwMarginAllowedValue=0x7f0a006f;
         public static final int txtVwPassword=0x7f0a0041;
-        public static final int txtVwRealEstateLabel=0x7f0a0061;
-        public static final int txtVwRealEstateValue=0x7f0a0062;
-        public static final int txtVwTotalLabel=0x7f0a0070;
-        public static final int txtVwTotalValue=0x7f0a0071;
-        public static final int txtVwquitiesValue=0x7f0a0065;
+        public static final int txtVwRealEstateLabel=0x7f0a0062;
+        public static final int txtVwRealEstateValue=0x7f0a0063;
+        public static final int txtVwTotalLabel=0x7f0a0071;
+        public static final int txtVwTotalValue=0x7f0a0072;
+        public static final int txtVwquitiesValue=0x7f0a0066;
         public static final int up=0x7f0a0021;
         public static final int useLogo=0x7f0a000e;
         public static final int withText=0x7f0a0013;
@@ -1271,34 +1271,35 @@ containing a value of this type.
         public static final int login_forgot_password=0x7f0b0013;
         public static final int login_password=0x7f0b0011;
         public static final int margin_allowed=0x7f0b001e;
-        public static final int pref_default_display_name=0x7f0b0031;
-        public static final int pref_description_social_recommendations=0x7f0b002f;
+        public static final int pref_default_display_name=0x7f0b0032;
+        public static final int pref_description_social_recommendations=0x7f0b0030;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f0b0033;
+        public static final int pref_header_data_sync=0x7f0b0034;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f0b002d;
+        public static final int pref_header_general=0x7f0b002e;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f0b0036;
-        public static final int pref_ringtone_silent=0x7f0b0039;
-        public static final int pref_title_add_friends_to_messages=0x7f0b0032;
-        public static final int pref_title_display_name=0x7f0b0030;
-        public static final int pref_title_new_message_notifications=0x7f0b0037;
-        public static final int pref_title_ringtone=0x7f0b0038;
-        public static final int pref_title_social_recommendations=0x7f0b002e;
-        public static final int pref_title_sync_frequency=0x7f0b0034;
-        public static final int pref_title_system_sync_settings=0x7f0b0035;
-        public static final int pref_title_vibrate=0x7f0b003a;
+        public static final int pref_header_notifications=0x7f0b0037;
+        public static final int pref_ringtone_silent=0x7f0b003a;
+        public static final int pref_title_add_friends_to_messages=0x7f0b0033;
+        public static final int pref_title_display_name=0x7f0b0031;
+        public static final int pref_title_new_message_notifications=0x7f0b0038;
+        public static final int pref_title_ringtone=0x7f0b0039;
+        public static final int pref_title_social_recommendations=0x7f0b002f;
+        public static final int pref_title_sync_frequency=0x7f0b0035;
+        public static final int pref_title_system_sync_settings=0x7f0b0036;
+        public static final int pref_title_vibrate=0x7f0b003b;
         public static final int preference_file_key=0x7f0b0020;
         public static final int real_state=0x7f0b001a;
+        public static final int search_description=0x7f0b002c;
         public static final int search_hint=0x7f0b0028;
         public static final int search_results=0x7f0b002b;
         public static final int title_activity_root=0x7f0b0015;
         public static final int title_activity_search=0x7f0b002a;
-        public static final int title_activity_settings=0x7f0b002c;
+        public static final int title_activity_settings=0x7f0b002d;
         public static final int total=0x7f0b001f;
     }
     public static final class style {

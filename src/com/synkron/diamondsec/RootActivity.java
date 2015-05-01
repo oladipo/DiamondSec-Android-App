@@ -87,7 +87,7 @@ import android.widget.ListView;
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,GravityCompat.START);
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		//getActionBar().setHomeButtonEnabled(true);
+		//getActionBar().
 		
 		if (savedInstanceState == null) {
 			selectItem(0);

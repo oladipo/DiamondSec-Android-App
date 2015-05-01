@@ -46,9 +46,8 @@ public class MainActivity extends ActionBarActivity {
         
         ActionBar actionBar = getActionBar();
         actionBar.setSubtitle("Login");
-        actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayUseLogoEnabled(false);
-        //actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.hide();
         
     }
 
