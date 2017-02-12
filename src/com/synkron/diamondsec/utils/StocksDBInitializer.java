@@ -46,6 +46,7 @@ public class StocksDBInitializer extends AsyncTask<ArrayList<Stock>, String, Str
 				//this operation should be happen as a transaction...
 				contentResolver.insert(StocksContentProvider.CONTENT_URI, values);
 			}
+			contentResolver.notifyChange(StocksContentProvider.CONTENT_URI, null);
 		}
 		return null;
 	}

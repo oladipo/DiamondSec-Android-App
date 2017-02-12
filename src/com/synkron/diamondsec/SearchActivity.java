@@ -1,19 +1,15 @@
 package com.synkron.diamondsec;
 
 import com.synkron.diamondsec.contentproviders.StocksContentProvider;
+import com.synkron.diamondsec.utils.AppConstants;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-
 import android.content.Loader;
 import android.content.CursorLoader;
 import android.widget.SimpleCursorAdapter;
@@ -86,6 +82,23 @@ public class SearchActivity extends ListActivity implements LoaderManager.Loader
 	            Log.i(TAG, "search query : "+ query);
 	            
 	            performSearch(query);
+	        }
+	        
+	        if(AppConstants.ACTION_VIEW_STOCK.equals(intent.getAction())){
+	        	
+	        	Log.i(TAG, "search suggestion selected : "+ intent.getData());
+	        	//broadcast intent for stock details activity...
+				
+	        	Intent stockDetailIntent = new Intent();
+	        	stockDetailIntent.setFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES);
+	        	stockDetailIntent.setAction(AppConstants.ACTION_VIEW_STOCK);
+	        	stockDetailIntent.setData(intent.getData());
+				
+				sendBroadcast(stockDetailIntent);
+				
+				Log.i(TAG, "Broadcast Intent Sent With Action :" + AppConstants.ACTION_VIEW_STOCK);
+				
+				finish();
 	        }
 	    }
 	 

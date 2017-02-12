@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout android:orientation="vertical"
+        android:background="@color/dim_gray"
+  	    android:layout_width="fill_parent"
+  	    android:paddingBottom="@dimen/activity_vertical_margin"
+  	    android:layout_height="wrap_content">
+  	    
+  	    <GridLayout android:orientation="horizontal"
+	  	    android:layout_width="match_parent"
+	  	    android:layout_height="wrap_content"
+	  	    android:paddingRight="@dimen/activity_horizontal_margin"
+	  	    android:paddingBottom="@dimen/activity_vertical_margin"
+	  	    android:paddingTop="@dimen/activity_vertical_margin" 
+	  	    android:rowCount="1"
+	  	    android:columnCount="3">
+	  	    
+	  	    <TextView android:id="@+id/StockName" 
+	  	        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content" 
+				android:layout_row="0"
+	    		android:layout_column="0"		    	
+		    	android:layout_marginLeft="@dimen/activity_horizontal_margin"
+		    	android:textSize="20sp"
+		    	android:ems="10"
+		    	android:singleLine="true"
+		    	android:ellipsize="end"
+		    	android:textColor="@color/white"/>
+	  	    
+	  	    <ImageView android:id="@+id/ChangeImage"
+	  	        android:contentDescription="graphic stock change"
+	  	      	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_gravity="right"
+				android:layout_row="0"
+	    		android:layout_column="1"/>
+	  	    
+	  	  	<TextView android:id="@+id/StockChange"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content" 
+	  	        android:layout_gravity="right"
+	  	       	android:layout_row="0"
+	    		android:layout_column="2"
+	  	        android:textSize="16sp"
+	  	        android:textColor="@color/white"/>
+		</GridLayout>
+	  	<TextView android:id="@+id/TickerCode" 
+	  	    android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    		android:textSize="12sp"
+    		android:textColor="@color/white" />        
+     </LinearLayout>
+	
+	<GridLayout android:orientation="horizontal"
+  	    android:layout_width="match_parent"
+  	    android:layout_height="wrap_content"
+  	    android:rowCount="1"
+  	    android:columnCount="2"
+  	    android:paddingBottom="@dimen/activity_vertical_margin"
+  	    android:paddingTop="@dimen/activity_vertical_margin" 
+  	    android:background="@color/silver">
+	  	  	
+	  	  	<TextView android:layout_width="wrap_content"    			    		
+	    		android:layout_height="wrap_content" 
+	    		android:textSize="16sp"
+	    		android:layout_marginLeft="@dimen/activity_horizontal_margin"
+	    		android:layout_row="0"
+	    		android:layout_column="0"
+	    		android:textColor="@color/white"
+	    		android:text="PRICE"/>	    
+	  	    
+	  	    <TextView android:id="@+id/StockPrice"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content" 
+	  	        android:paddingRight="@dimen/activity_horizontal_margin"
+	  	        android:layout_gravity="right"
+	  	       	android:layout_row="0"
+	    		android:layout_column="1"
+	  	        android:textSize="16sp"
+	  	        android:textColor="@color/white"/>
+	  	    
+	</GridLayout>
+	<GridLayout android:orientation="horizontal"
+  	    android:layout_width="match_parent"
+  	    android:layout_height="wrap_content"
+  	    android:rowCount="1"
+  	    android:columnCount="2"
+  	    android:paddingBottom="@dimen/activity_vertical_margin"
+  	    android:paddingTop="@dimen/activity_vertical_margin" 
+  	    android:background="@color/silver">
+	  	  	
+	  	  	<TextView android:layout_width="wrap_content"    		
+	    		android:layout_height="wrap_content" 
+	    		android:layout_marginLeft="@dimen/activity_horizontal_margin"
+	    		android:textSize="16sp"
+	    		android:textColor="@color/white"
+	    		android:text="PREVIOUS CLOSE"/>	    
+	  	    
+	  	    <TextView android:id="@+id/StockClose"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	  	        android:layout_gravity="right"
+	  	        android:paddingRight="@dimen/activity_horizontal_margin"
+	  	        android:textSize="16sp"
+	  	        android:textColor="@color/white" />
+	  	    
+	</GridLayout>
+	<GridLayout android:orientation="horizontal"
+  	    android:layout_width="match_parent"
+  	    android:layout_height="wrap_content"
+  	    android:rowCount="1"
+  	    android:columnCount="2"
+  	    android:paddingBottom="@dimen/activity_vertical_margin"
+  	    android:paddingTop="@dimen/activity_vertical_margin" 
+  	    android:background="@color/silver">
+	  	  	
+	  	  	<TextView android:layout_width="wrap_content"    		
+	    		android:layout_height="wrap_content" 
+	    		android:layout_marginLeft="@dimen/activity_horizontal_margin"
+	    		android:textSize="16sp"
+	    		android:textColor="@color/white"
+	    		android:text="VOLUME"/>	    
+	  	    
+	  	    <TextView android:id="@+id/StockVolume"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	  	        android:layout_gravity="right"
+	  	        android:paddingRight="@dimen/activity_horizontal_margin"
+	  	        android:textSize="16sp"
+	  	        android:textColor="@color/white" />
+	  	    
+	</GridLayout>
+</LinearLayout>

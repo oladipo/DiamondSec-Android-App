@@ -1,12 +1,14 @@
 package com.synkron.diamondsec;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 import com.synkron.diamondsec.adapters.SideMenuAdapter;
+import com.synkron.diamondsec.contentproviders.StocksContentProvider;
 import com.synkron.diamondsec.fragments.ContentFragment;
 import com.synkron.diamondsec.fragments.MyAccountFragment;
+import com.synkron.diamondsec.fragments.StockDetailFragment;
 import com.synkron.diamondsec.fragments.StocksListFragment;
+import com.synkron.diamondsec.utils.AppConstants;
 
 import android.support.v7.app.*;
 import android.support.v7.widget.SearchView;
@@ -16,31 +18,38 @@ import android.support.v4.widget.DrawerLayout;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.SearchManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-@SuppressLint("NewApi") public class RootActivity extends ActionBarActivity {
+@SuppressLint("NewApi") 
+public class RootActivity extends ActionBarActivity {
 
+	private static final String TAG = "RootActivity";
+	
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
 	private CharSequence mTitle, mDrawerTitle;
 	private String[] mAppMenu;
 	private ArrayList<SideMenuModel> sideMenuArrayList;
-	
 	private Context _context;
+	private IntentFilter viewStockFilter = new IntentFilter();		
 	
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB) @SuppressLint("NewApi") @Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB) 
+	@SuppressLint("NewApi") @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment_root);
@@ -101,8 +110,56 @@ import android.widget.ListView;
 	      //doMySearch(query);
 	    }
 		_context = this;
+		
+		viewStockFilter.addAction(AppConstants.ACTION_VIEW_STOCK);
+		
+		try{
+			viewStockFilter.addDataType("vnd.android.cursor.item/vnd.diamondsec.stock");
+		
+		}catch(Exception Ex){
+			Log.i(TAG, "Exception Occured : "+ Ex.getMessage());
+		}
 	}
+	
+	private BroadcastReceiver viewStockReceiver = new BroadcastReceiver(){
 
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			Log.i(TAG, "Broadcast intent received..");
+			
+			Uri selectedUri = intent.getData();
+			
+			Bundle args = new Bundle();
+			args.putString("URI", selectedUri.toString());
+
+			android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+			android.support.v4.app.Fragment fragment = new StockDetailFragment();
+			
+			fragment.setArguments(args);
+			
+			fragmentManager.beginTransaction()
+				.replace(R.id.content_frame, fragment)
+				.commit();
+			
+		};
+	};
+	
+	@Override
+	protected void onResume(){
+		super.onResume();
+		registerReceiver(viewStockReceiver, viewStockFilter);
+		
+		Log.i(TAG, "Broadcast Receiver registered");
+	}
+	
+	@Override
+	protected void onPause(){
+		super.onPause();
+		//unregisterReceiver(viewStockReceiver);
+		
+		//Log.i(TAG, "Broadcast intent unregistered..");
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
         
@@ -155,7 +212,8 @@ import android.widget.ListView;
 			selectItem(arg2);
 		}
 	}
-		private void selectItem(int position){
+	
+	private void selectItem(int position){
 			android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 			android.support.v4.app.Fragment fragment;
 			
@@ -174,6 +232,10 @@ import android.widget.ListView;
 	    		_context.startActivity(intent);
 				
 				break;
+			case 6:
+				fragment = new StockDetailFragment();
+				break;
+			
 			default:
 				fragment = new ContentFragment();
 					break;
@@ -192,10 +254,11 @@ import android.widget.ListView;
 				setTitle(mAppMenu[position]);
 				mDrawerLayout.closeDrawer(mDrawerList);
 			}
-		}
+	}
 		
-		public void setTitle(CharSequence title){
-			mTitle = title;
-			getActionBar().setTitle(mTitle);
-		}
+	public void setTitle(CharSequence title){
+		mTitle = title;
+		getActionBar().setTitle(mTitle);
+	}
+	
 }

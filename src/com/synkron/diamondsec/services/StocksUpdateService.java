@@ -78,15 +78,14 @@ public class StocksUpdateService extends IntentService{
 		//if last update is null => app is running for the first time...=> startService() to update stocks..
 		//last update is the last time stocks were updated/last time alarm was fired...
 		int alarmType = AlarmManager.ELAPSED_REALTIME_WAKEUP;
-		//test time interval to see if alarm is fire and service is started... 
+		//test time interval to see if alarm is fired and service is started... 
 		//this should be replaced with the alarm interval constant of a day.
 		long triggerAtMillis = SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_DAY;
-		long intervalMillis = AlarmManager.INTERVAL_DAY;
 		
 		//long triggerAtMillis = AlarmManager.INTERVAL_DAY;
 		Log.i(TAG,"Stock Update Alarm set to trigger at "+ triggerAtMillis);
 		
-		alarmManager.setInexactRepeating(alarmType, triggerAtMillis, intervalMillis, alarmIntent);
+		alarmManager.setInexactRepeating(alarmType, triggerAtMillis, AlarmManager.INTERVAL_DAY, alarmIntent);
 		
 		refreshStocks();
 	}

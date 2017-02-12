@@ -69,7 +69,7 @@ public class StocksContentProvider extends ContentProvider{
 		SEARCH_SUGGEST_PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_TEXT_1, KEY_SEARCH_COLUMN 
 				+ " AS "+ SearchManager.SUGGEST_COLUMN_TEXT_1);
 		SEARCH_SUGGEST_PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_INTENT_DATA_ID, KEY_ID 
-				+ " AS "+ "_id");
+				+ " AS "+ SearchManager.SUGGEST_COLUMN_INTENT_DATA_ID);
 	};
 	
 	@Override
@@ -83,7 +83,6 @@ public class StocksContentProvider extends ContentProvider{
 			break;
 		case SINGLE_ROW:
 			String segment = uri.getPathSegments().get(1);
-			
 			count = database.delete(StocksDBOpenHelper.DATABASE_TABLE, KEY_ID + "="
 					+ segment
 					+ (!TextUtils.isEmpty(whereClause) ? " AND ("
@@ -102,14 +101,14 @@ public class StocksContentProvider extends ContentProvider{
 	@Override
 	public String getType(Uri uri) {
 		switch(uriMatcher.match(uri)){
-		case ALLROWS: 
-			return "vnd.android.cursor.dir/vnd.diamondsec.stock";
-		case SINGLE_ROW: 
-			return "vnd.android.cursor.item/vnd.diamondsec.stock";
-		case SEARCH:
-			return SearchManager.SUGGEST_MIME_TYPE;
-		default:
-			throw new IllegalArgumentException("Unsupported URI: "+ uri);
+			case ALLROWS: 
+				return "vnd.android.cursor.dir/vnd.diamondsec.stock";
+			case SINGLE_ROW: 
+				return "vnd.android.cursor.item/vnd.diamondsec.stock";
+			case SEARCH:
+				return SearchManager.SUGGEST_MIME_TYPE;
+			default:
+				throw new IllegalArgumentException("Unsupported URI: "+ uri);
 		}
 	}
 

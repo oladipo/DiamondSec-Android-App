@@ -11,10 +11,9 @@
 	        android:layout_height="match_parent"
 	        android:layout_gravity="start"
 	        android:choiceMode="singleChoice"
-	        android:divider="@android:color/transparent"
-	        android:dividerHeight="2dp"
-	        android:listSelector="@drawable/list_selector"
-	        />
+	        android:divider="@color/light_gray"
+	        android:dividerHeight="1dp"
+	        android:listSelector="@drawable/list_selector" />
 	</android.support.v4.widget.SwipeRefreshLayout>
     <ProgressBar android:id="@+id/progressStocks"
         android:layout_width="wrap_content"

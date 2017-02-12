@@ -48,13 +48,13 @@ public class StocksListAdapter extends ArrayAdapter<Stock>{
 		//3. get icon and title from row view
 		TextView txtVwStockName = (TextView) rowView.findViewById(R.id.StockName);
 		TextView txtVwPrice = (TextView) rowView.findViewById(R.id.Price);
-		TextView txtVwClose = (TextView) rowView.findViewById(R.id.Close);
+		//TextView txtVwClose = (TextView) rowView.findViewById(R.id.Close);
 		TextView txtVwChange = (TextView) rowView.findViewById(R.id.Change);
 		
 		//4. set text for text view and icon resource for imageview
 		txtVwStockName.setText(mStocks.get(position).getName().toUpperCase());
 		txtVwPrice.setText(" "+currencySymbol+" "+formatter.format(Double.parseDouble(mStocks.get(position).getPrice())));
-		txtVwClose.setText(" "+formatter.format(Double.parseDouble(mStocks.get(position).getLClose()+ " ")));
+		//txtVwClose.setText(" "+formatter.format(Double.parseDouble(mStocks.get(position).getLClose()+ " ")));
 		txtVwChange.setText(" "+mStocks.get(position).getChange());
 		
 		

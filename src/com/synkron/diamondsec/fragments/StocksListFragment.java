@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.content.Intent;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -19,8 +20,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.database.Cursor;
 
 import com.synkron.diamondsec.R;
@@ -31,6 +35,7 @@ import com.synkron.diamondsec.broadcastreceivers.StockUpdateAlarmReceiver;
 import com.synkron.diamondsec.callbacks.FragmentCallback;
 
 import com.synkron.diamondsec.contentproviders.StocksContentProvider;
+import com.synkron.diamondsec.utils.AppConstants;
 
 public class StocksListFragment extends android.support.v4.app.Fragment implements FragmentCallback, 
 																				LoaderManager.LoaderCallbacks<Cursor>, 
@@ -45,7 +50,6 @@ public class StocksListFragment extends android.support.v4.app.Fragment implemen
 	
 	//this is the adapter used to display the listview data..
 	StocksListCursorAdapter _cursorAdapter;	
-	
 	Context _context;
 	
 	@SuppressWarnings("deprecation")
@@ -62,7 +66,6 @@ public class StocksListFragment extends android.support.v4.app.Fragment implemen
 	            android.R.color.holo_red_light);
 		_context = getActivity();
 		
-		getAllTradedStocks();
 		
 		mStocksListView = (ListView) rootView.findViewById(R.id.stocks_list);
 		mStocksListView.setTextFilterEnabled(true);
@@ -75,13 +78,33 @@ public class StocksListFragment extends android.support.v4.app.Fragment implemen
 		//set listview adapter to a cursor adapter...
 		mStocksListView.setAdapter(_cursorAdapter);
 		
+		mStocksListView.setOnItemClickListener(new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				// TODO call parent view to get fragment manager to instantiate single stock view
+				//      fragment..
+				TextView txtVwStockTicker = (TextView) view.findViewById(R.id.StockTicker);
+				Log.i(TAG, txtVwStockTicker.getText()+ " was selected ");
+				
+				//create a broadcast intent for the rootactivity to set the single stock list
+				//fragment, also pass in the stock ticker code as the bundle args..
+				
+				Intent intent = new Intent();
+				intent.setFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES);
+				intent.setAction(AppConstants.ACTION_VIEW_STOCK);
+				intent.setData(Uri.withAppendedPath(StocksContentProvider.CONTENT_URI, String.valueOf(id)));
+				
+				getActivity().sendBroadcast(intent);
+				
+				Log.i(TAG, "Broadcast Intent Sent With Action :" + AppConstants.ACTION_VIEW_STOCK);
+			}
+			
+		});
+			
 		Log.i(TAG, "MyStocksFragment Inflated");
 		
 		return rootView;
-	}
-	
-	private void getAllTradedStocks() {
-		
 	}
 
 	@Override
